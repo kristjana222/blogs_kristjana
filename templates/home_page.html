@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://unpkg.com/emoji.css/dist/emoji.min.css'>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <style>
+
+body {
+  background-image: url('https://psycodedeveloper.files.wordpress.com/2013/06/background_bw.jpg');
+}
+.div_body  {
+  border: 5px outset White;
+  background-image: url('https://q3p9g6n2.rocketcdn.me/wp-content/ml-loads/2018/09/writer-writing-ss-1920.jpg');
+  text-align: center;
+  margin-top: 70px;
+  margin-right: 120px;
+  margin-left: 100px;
+  height:620px;
+}
+.sidenav {
+  z-index: 8;
+  margin-top: -150px;
+  height:600px;
+  margin-right: 120px;
+  margin-right: 1000px;
+  background-color: #111;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 60px 18px 16px 26px;
+  text-decoration: none;
+  font-size: 25px;
+
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: White;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 59px;}
+  .sidenav a {font-size: 18px;}
+}
+.div_text{
+
+
+  text-align: center;
+  margin-top: -490px;
+  margin-right: 320px;
+  margin-left: 600px;
+  height:200px;
+  width:400px;
+
+}
+
+
+    </style>
+</head>
+<body>
+{% block content %}
+<div class="div_body">
+    <h1 style="color:Black;font-family: Edwardian Script ITC;font-size:60px">Home Page</h1>
+    <div class="sidenav">
+        <a href="/"><i class="material-icons">home</i> Home</a>
+        <a href="new/"><i class="material-icons">format_list_numbered</i> Blogs</a>
+        <a href="blogger_list"><i class="material-icons">format_list_numbered</i> Bloggers</a>
+        <a href="login"><i class="material-icons">login</i> Login</a>
+        <p style="color:White;font-family:Times New Roman;">if you want to add a comment you have to register!</p>
+        <a href="register"><i class="material-icons">assignment_ind</i>Register</a>
+       
+    </div>
+    <div class="div_text">
+        <p style="font-size:55px;font-family:Edwardian Script ITC;">Posto një koment për një blog!
+            <span class="ec ec-fountain-pen"></span></p>
+
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

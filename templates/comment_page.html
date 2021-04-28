@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <title>Comment page</title>
+    <style>
+
+body {
+  background-image: url('https://psycodedeveloper.files.wordpress.com/2013/06/background_bw.jpg');
+}
+.div_body  {
+  border: 5px outset White;
+  background-image: url('https://q3p9g6n2.rocketcdn.me/wp-content/ml-loads/2018/09/writer-writing-ss-1920.jpg');
+  text-align: center;
+  margin-top: 70px;
+  margin-right: 120px;
+  margin-left: 100px;
+  height:620px;
+}
+.sidenav {
+  z-index: 8;
+  margin-top: -50px;
+  height:610px;
+  margin-right: 1050px;
+  background-color: #111;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 60px 18px 16px 26px;
+  text-decoration: none;
+  font-size: 25px;
+  font-family:Times New Roman;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: Aqua;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 59px;}
+  .sidenav a {font-size: 18px;}
+}
+.div_text{
+
+
+  text-align: center;
+  margin-top: -490px;
+  margin-right: 320px;
+  margin-left: 400px;
+  height:200px;
+  width:400px;
+}
+.add_c {
+  margin-top: -60px;
+  margin-left: 1250px;
+}
+
+    </style>
+</head>
+<body>
+{% block content %}
+<div class="div_body">
+    <h1 style="color:Black;font-family: Edwardian Script ITC;font-size:35px"><b>{{blog1.title}}</b></h1>
+    <div class="sidenav">
+        <a href="/"><i class="material-icons">home</i> Home</a>
+        <a href="new/"><i class="material-icons">format_list_numbered</i> Blogs</a>
+        <a href="blogger_list"><i class="material-icons">format_list_numbered</i> Bloggers</a>
+        <a href="login"><i class="material-icons">login</i> Login</a>
+    </div>
+    <div class="div_text">
+
+        <p style="font-family:Times New Roman;"><b><i>Post Date</i>:</b> {{blog1.date_post}}</p>
+        <p style="font-family:Times New Roman;"><b><i>Author</i>:</b> <a href="blog/{{blog1.author.id}}">{{blog1.author.name}} {{blog1.author.surname}}</a></p>
+         <p style="font-family:Times New Roman;"><b><i>Description</i>:</b> {{blog1.permbajtja}}</p>
+
+        <p style="font-family:Times New Roman;"><b><i>Comments</i>:</b>
+        <ol>
+            {% for users in user %}
+        <li><b>{{users.komentuesi.first_name}} {{users.komentuesi.last_name}}</b> ({{users.date_postc}}) {{users.permbajtje_c}}</li>
+
+            {% endfor%}
+        </ol>
+    </div>
+
+</div>
+<div class="add_c">
+    <a href="login">
+        <button type="button" class="btn btn-secondary"><p style="color:Black;font-family: sans-serif;">Add
+            Comment</p>
+        </button>
+    </a>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://unpkg.com/emoji.css/dist/emoji.min.css'>
+    <meta charset="UTF-8">
+    <title>Blogger Bio</title>
+    <style>
+
+body {
+  background-image: url('https://psycodedeveloper.files.wordpress.com/2013/06/background_bw.jpg');
+}
+.div_body  {
+  border: 5px outset White;
+  background-image: url('https://q3p9g6n2.rocketcdn.me/wp-content/ml-loads/2018/09/writer-writing-ss-1920.jpg');
+  text-align: center;
+  margin-top: 70px;
+  margin-right: 120px;
+  margin-left: 100px;
+  height:620px;
+}
+.sidenav {
+  z-index: 8;
+  margin-top: -90px;
+  height:600px;
+  margin-right: 120px;
+  margin-right: 1050px;
+  background-color: #111;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 60px 18px 16px 26px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: Green;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 59px;}
+  .sidenav a {font-size: 18px;}
+}
+.div_text{
+
+
+  text-align: center;
+  margin-top: -520px;
+  margin-right: 320px;
+  margin-left: 400px;
+  height:200px;
+  width:600px;
+
+}
+
+
+    </style>
+</head>
+<body>
+{% block content %}
+<div class="div_body">
+
+    <h1 style="color:Black;font-family: Edwardian Script ITC;font-size:35px"><b>{{blogger_bio.name}} {{blogger_bio.surname}}</b></h1>
+    <div class="sidenav">
+        <a href="/"><i class="material-icons">home</i> Home</a>
+        <a href="new/"><i class="material-icons">format_list_numbered</i> Blogs</a>
+        <a href="blogger_list"><i class="material-icons">format_list_numbered</i> Bloggers</a>
+        <a href="login"><i class="material-icons">login</i> Login</a>
+    </div>
+    <div class="div_text">
+        <p style="font-family:Times New Roman;">{{blogger_bio.bio}}
+        </p>
+    </div>
+    <div>
+        <h1 style="color:Black;font-family: Times New Roman;font-size:25px"><b> List of ( {{blogger_bio.name}} {{blogger_bio.surname}} ) blogs.</b></h1>
+        <ol>{%for lst in blog_lst%}
+            <li style="color:Black;font-family: Times New Roman;font-size:19px">*
+                <a href="listo/{{lst.id}}"> {{lst.title}}</a> ({{lst.date_post}})
+            </li>
+            {%endfor%}
+        </ol>
+    </div>
+    <p style="color:black;font-family:Times New Roman">Use your ID ({{blogger_bio.id}})to add a new blog</p>
+    <a href="create_blog"><p style="color:black;font-family:Times New Roman">Add new blog</p></a>
+</div>
+
+{% endblock %}
+</body>
+</html>

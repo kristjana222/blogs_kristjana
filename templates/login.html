@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html style="overflow-y: scroll" xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+body{
+background-image:url('https://psycodedeveloper.files.wordpress.com/2013/06/background_bw.jpg');
+}
+#nav1 {
+ margin-top: 10px;
+ margin-left: 1280px;
+ margin-right: 10px;
+ color:black;
+
+}
+
+#image{
+background-image:url('https://i.pinimg.com/474x/65/0c/c9/650cc92b3293162393e0a65984e28306.jpg');
+  margin-top:0px;
+  margin-left:500px;
+  height:350px;
+  width: 420px;
+  text-align:center;
+  padding:130px;
+}
+#login
+{
+  background-image:url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/black-faux-concrete-stone-texture-industrial-art-melissa-fague.jpg');
+  margin-right: 0px;
+  margin-top:0px;
+  margin-left: 500px;
+  height:275px;
+  width: 420px;
+  padding:25px;
+  text-align: center;
+}
+#err{
+font-family:Times New Roman;
+font-size:15px;
+color:Red;
+}
+    </style>
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="image">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+<!--https://dbeaver.io/
+-->
+{% block content %}
+<div id="nav1">
+    <form>
+        <a href='/' class="btn-floating btn-large  pulse waves-light grey">
+            <i class="material-icons">home</i></a>
+    </form>
+</div>
+<div id="image">
+
+        <h1 style="font-family:Lucida Consol;color:LightBlue;margin:9px;margin-left:45px;">Login</h1>
+
+</div>
+<div id="login">
+    {% for message in messages %}
+    <p style="color:Red;">{{message}}</p>
+    {% endfor %}
+    <form action="login" method="POST">
+        {%csrf_token%}
+        <div class="input-field col s3">
+            <input placeholder="Write Username" id="name" name="username" type="text"
+                   style="font-family:Times New Roman;color:White;font-size:20px">
+            <label for="input_text" style="font-family:Times New Roman;color:White;font-size:20px">Username:</label>
+        </div>
+        <div class="input-field col s3">
+            <input placeholder="Write Password" id="pass" name="password" type="password"
+                   style="font-family:Times New Roman;color:White;font-size:20px">
+            <label for="input_text" style="font-family:Times New Roman;color:White;font-size:20px">Password:</label>
+        </div>
+
+        <button class="btn waves-effect waves-light grey" type="submit" >
+            <i class="material-icons right">send</i>Login
+        </button>
+
+    </form>
+</div>
+{% endblock %}
+</body>
+</html>
